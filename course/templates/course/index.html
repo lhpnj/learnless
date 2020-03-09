@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'course/style.css' %}">
+
+{% if latest_course_list %}
+<ul>
+    {% for course in latest_course_list %}
+        <li><a href="{% url 'course:detail' course.id %} ">{{ course.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>没有课程！！</p>
+{% endif %}
